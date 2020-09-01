@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Market.Views.BoasVindasView"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout Padding="0" 
+                     VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"
+                     BackgroundColor="AliceBlue">
+            <Frame Padding="0" 
+                   VerticalOptions="FillAndExpand"
+                   HorizontalOptions="FillAndExpand"
+                   BackgroundColor="AliceBlue">
+                <StackLayout Spacing="0"
+                     IsEnabled="False">
+                    <StackLayout VerticalOptions="FillAndExpand" 
+                         HorizontalOptions="FillAndExpand" Orientation="Horizontal"
+                         Spacing="0"
+                         IsEnabled="False">
+                        <CarouselView ItemsSource="{Binding BoasVindasSlides}" 
+                              x:Name="ImagensApresentacao"
+                              HorizontalOptions="Fill"
+                              VerticalOptions="Fill"
+                              IsEnabled="False"
+                              Position="{Binding Posicao}">
+                            <CarouselView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Spacing="0"
+                                         HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="FillAndExpand">
+                                        <Frame Margin="0"
+                                       Padding="0">
+                                            <Image Source="{Binding Imagem}"
+                                           HorizontalOptions="FillAndExpand"
+                                           VerticalOptions="FillAndExpand"/>
+                                        </Frame>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CarouselView.ItemTemplate>
+                        </CarouselView>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Market.Views.LoginView"
+             xmlns:enhancedEntry="clr-namespace:LeoJHarris.FormsPlugin.Abstractions;assembly=LeoJHarris.FormsPlugin.Abstractions"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout>
+            <AbsoluteLayout HorizontalOptions="FillAndExpand">
+                <Image Source="Fundo_LoginView.png"/>
+                <StackLayout AbsoluteLayout.LayoutFlags="All"
+                             AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                             Padding="0"
+                             Spacing="0">
+                    <Image Source="Logo_LoginView.png"
+                           HeightRequest="230"
+                           Margin="0, 30, 0, 30"/>
+                    <enhancedEntry:EnhancedEntry Placeholder="EMAIL"
+                                                 BackgroundColor="#d6d7d9"
+                                                 FontSize="12"
+                                                 TextColor="#7c8185"
+                                                 PlaceholderColor="#7c8185"
+                                                 Keyboard="Email"
+                                                 CornerRadius="100"
+                                                 Margin="20, 20, 20, 5"
+                                                 Text="{Binding Email}"/>
+                    <enhancedEntry:EnhancedEntry Placeholder="SENHA"
+                                                 BackgroundColor="#d6d7d9"
+                                                 FontSize="12"
+                                                 TextColor="#7c8185"
+                                                 PlaceholderColor="#7c8185"
+                                                 Keyboard="Email"
+                                                 CornerRadius="100"
+                                                 Margin="20, 5, 20, 10"
+                                                 Text="{Binding Password}"/>
+                    <Button Text="Registre-se"
+                            TextColor="White"
+                            Margin="120, 0, 120, 0"
+                            FontSize="10"
+                            Padding="0"
+                            CornerRadius="100"
+                            BackgroundColor="Transparent"
+                            FontAttributes="Bold"
+                            Command="{Binding Registrar}"/>
+                    <Button Text="ENTRAR"
+                            Padding="0"
+                            BackgroundColor="#e17622"
+                            WidthRequest="120"
+                            HorizontalOptions="Center"
+                            HeightRequest="40"
+                            TextColor="#4a4644"
+                            FontSize="14"
+                            FontAttributes="Bold"
+                            CornerRadius="100"
+                            Command="{Binding Entrar}"/>
+                    <Button Text="Esqueceu a senha?"
+                            TextColor="White"
+                            Margin="120, 0, 120, 0"
+                            FontSize="10"
+                            Padding="0"
+                            CornerRadius="100"
+                            BackgroundColor="Transparent"
+                            FontAttributes="Bold"
+                            Command="{Binding EsqueceuSenha}"/>
+
+                </StackLayout>
+                
+            </AbsoluteLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

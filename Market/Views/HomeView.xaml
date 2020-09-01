@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Market.Views.HomeView"
+                  NavigationPage.HasNavigationBar="False">
+    <MasterDetailPage.Master>
+        <ContentPage Title="MenuHome" Padding="0">
+            <ContentPage.Content>
+                <AbsoluteLayout>
+                    <Image AbsoluteLayout.LayoutBounds="0, 0"
+                           AbsoluteLayout.LayoutFlags="PositionProportional"
+                           Source="{Binding ImagemFundo_MenuView}"
+                           Aspect="Fill"/>
+                    <StackLayout Margin="10"
+                                 HorizontalOptions="Fill">
+                        <ListView ItemsSource="{Binding Menu}"
+                                  HorizontalOptions="Fill">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <ViewCell.View>
+                                            <StackLayout Orientation="Horizontal"
+                                                         HorizontalOptions="Fill">
+                                                <Image Source="{Binding Icone}"
+                                                       HorizontalOptions="Start"
+                                                       HeightRequest="30"
+                                                       WidthRequest="30"/>
+                                                <Label Text="{Binding Titulo}"
+                                                       FontSize="12"
+                                                       FontAttributes="Bold"
+                                                       VerticalOptions="Center"
+                                                       VerticalTextAlignment="Center"
+                                                       Margin="10, 0, 0, 0"/>
+                                                <Image Source="{Binding Avancar}"
+                                                       HorizontalOptions="EndAndExpand"
+                                                       HeightRequest="20"
+                                                       Margin="0, 0, 100, 0"/>
+                                            </StackLayout>
+                                        </ViewCell.View>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </AbsoluteLayout>
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    </MasterDetailPage>
