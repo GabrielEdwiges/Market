@@ -14,7 +14,8 @@
                     <StackLayout Margin="10"
                                  HorizontalOptions="Fill">
                         <ListView ItemsSource="{Binding Menu}"
-                                  HorizontalOptions="Fill">
+                                  HorizontalOptions="Fill"
+                                  SelectedItem="{Binding ItemSelecionado}">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>

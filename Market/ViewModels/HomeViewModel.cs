@@ -8,6 +8,20 @@ namespace Market.ViewModels
         private ObservableCollection<MenuModel> _Menu { get; set; }
         public ObservableCollection<MenuModel> Menu { get { return _Menu; } set { _Menu = value; } }
 
+        private MenuModel _ItemSelecionado { get; set; }
+        public MenuModel ItemSelecionado
+        {
+            get { return _ItemSelecionado; }
+            set
+            {
+                if(_ItemSelecionado != value)
+                {
+                    _ItemSelecionado = value;
+                    HandleSelectedItem();
+                }
+            }
+        }
+
         private string _ImagemFundo_MenuView { get; set; }
         public string ImagemFundo_MenuView { get { return _ImagemFundo_MenuView; } set { _ImagemFundo_MenuView = value; OnPropertyChanged("ImagemFundo_MenuView"); } }
 
@@ -26,6 +40,11 @@ namespace Market.ViewModels
                 new MenuModel(){ Icone = "IconeSair_MenuView.png", Titulo = "Sair", Avancar = "IconeAvancar_MenuView.png" },
 
             };
+        }
+
+        private void HandleSelectedItem()
+        {
+
         }
     }
 }
