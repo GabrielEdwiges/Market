@@ -15,6 +15,8 @@ namespace Market.Views
         public HomeDetailView()
         {
             InitializeComponent();
+
+            BindingContext = new ViewModels.HomeDetailViewModel();
         }
     }
 }

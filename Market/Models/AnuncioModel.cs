@@ -8,7 +8,6 @@ namespace Market.Models
         public string Categoria { get; set; }
         public string Titulo { get; set; }
         public List<ImagemModel> Imagens { get; set; }
-        public List<DetalheModel> Detalhes { get; set; }
         public List<DateTime> DatasIndisponiveis { get; set; }
         public EnderecoModel Endereco { get; set; }
         public bool Possui360 { get; set; }

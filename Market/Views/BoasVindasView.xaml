@@ -13,27 +13,28 @@
                    HorizontalOptions="FillAndExpand"
                    BackgroundColor="AliceBlue">
                 <StackLayout Spacing="0"
-                     IsEnabled="False">
+                             IsEnabled="False">
                     <StackLayout VerticalOptions="FillAndExpand" 
-                         HorizontalOptions="FillAndExpand" Orientation="Horizontal"
-                         Spacing="0"
-                         IsEnabled="False">
+                                 HorizontalOptions="FillAndExpand" 
+                                 Orientation="Horizontal"
+                                 Spacing="0"
+                                 IsEnabled="False">
                         <CarouselView ItemsSource="{Binding BoasVindasSlides}" 
-                              x:Name="ImagensApresentacao"
-                              HorizontalOptions="Fill"
-                              VerticalOptions="Fill"
-                              IsEnabled="False"
-                              Position="{Binding Posicao}">
+                                      x:Name="ImagensApresentacao"
+                                      HorizontalOptions="Fill"
+                                      VerticalOptions="Fill"
+                                      IsEnabled="False"
+                                      Position="{Binding Posicao}">
                             <CarouselView.ItemTemplate>
                                 <DataTemplate>
                                     <StackLayout Spacing="0"
-                                         HorizontalOptions="FillAndExpand"
-                                         VerticalOptions="FillAndExpand">
+                                                 HorizontalOptions="FillAndExpand"
+                                                 VerticalOptions="FillAndExpand">
                                         <Frame Margin="0"
-                                       Padding="0">
+                                               Padding="0">
                                             <Image Source="{Binding Imagem}"
-                                           HorizontalOptions="FillAndExpand"
-                                           VerticalOptions="FillAndExpand"/>
+                                                   HorizontalOptions="FillAndExpand"
+                                                   VerticalOptions="FillAndExpand"/>
                                         </Frame>
                                     </StackLayout>
                                 </DataTemplate>

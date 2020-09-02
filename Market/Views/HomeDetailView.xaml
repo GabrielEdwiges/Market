@@ -5,10 +5,28 @@
              NavigationPage.IconColor="Gray"
              NavigationPage.HasBackButton="False">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Spacing="0">
+            <CollectionView ItemsSource="{Binding DetalhesModel}"
+                            HeightRequest="220"
+                            HorizontalOptions="Center"
+                            BackgroundColor="Black">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Horizontal" Span="2"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="3" HasShadow="True" >
+                            <StackLayout>
+                                <ImageButton Source="{Binding Icone}"
+                                                 HeightRequest="45"/>
+                                <Label Text="{Binding Titulo}"
+                                           HorizontalTextAlignment="Center"
+                                           FontSize="10"/>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
