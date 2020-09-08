@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<naxam:BottomTabbedPage  xmlns:naxam="clr-namespace:Naxam.Controls.Forms;assembly=Naxam.BottomTabbedPage.Forms" 
+                         xmlns="http://xamarin.com/schemas/2014/forms"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                         xmlns:local="clr-namespace:Market.Views"
+                         x:Class="Market.Views.TabbedView"
+                         NavigationPage.IconColor="Gray">
+    <local:HomeDetailView/>
+</naxam:BottomTabbedPage>

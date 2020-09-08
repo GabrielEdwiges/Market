@@ -2,7 +2,7 @@
 {
     public class ImagemModel
     {
-        public byte[] ImagemSource { get; set; }
+        public string ImagemSource { get; set; }
 
     }
 }

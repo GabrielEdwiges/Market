@@ -12,7 +12,7 @@ namespace Market.Views
             InitializeComponent();
 
             BindingContext = new ViewModels.HomeViewModel();
-            Detail = new NavigationPage(new HomeDetailView());
+            Detail = new NavigationPage(new TabbedView());
         }
     }
 }

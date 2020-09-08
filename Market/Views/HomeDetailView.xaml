@@ -1,32 +1,231 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:enhancedEntry="clr-namespace:LeoJHarris.FormsPlugin.Abstractions;assembly=LeoJHarris.FormsPlugin.Abstractions" xmlns:messier16="clr-namespace:Messier16.Forms.Controls;assembly=Messier16.Forms.Controls"
              x:Class="Market.Views.HomeDetailView"
-             NavigationPage.IconColor="Gray"
-             NavigationPage.HasBackButton="False">
+             NavigationPage.HasBackButton="False"
+             Title="HOME"
+             IconImageSource="{Binding ImagemSelecionada}">
     <ContentPage.Content>
-        <StackLayout Spacing="0">
-            <CollectionView ItemsSource="{Binding DetalhesModel}"
-                            HeightRequest="220"
-                            HorizontalOptions="Center"
-                            BackgroundColor="Black">
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Horizontal" Span="2"/>
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Frame CornerRadius="3" HasShadow="True" >
-                            <StackLayout>
-                                <ImageButton Source="{Binding Icone}"
-                                                 HeightRequest="45"/>
-                                <Label Text="{Binding Titulo}"
+        <ScrollView>
+            <StackLayout Spacing="0"
+                         BackgroundColor="White">
+                <CollectionView ItemsSource="{Binding DetalhesModel}"
+                                HeightRequest="240"
+                                HorizontalOptions="Center"
+                                BackgroundColor="White">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Horizontal" Span="2"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame CornerRadius="3" HasShadow="True"
+                                   Margin="15"
+                                   BackgroundColor="Transparent">
+                                <StackLayout>
+                                    <ImageButton Source="{Binding Icone}"
+                                                 HeightRequest="45"
+                                                 BackgroundColor="Transparent"/>
+                                    <Label Text="{Binding Titulo}"
                                            HorizontalTextAlignment="Center"
-                                           FontSize="10"/>
-                            </StackLayout>
-                        </Frame>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </StackLayout>
+                                           FontSize="10"
+                                           FontAttributes="Bold"
+                                           TextColor="Black"/>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <enhancedEntry:EnhancedEntry Placeholder="Buscar"
+                                             BackgroundColor="#d6d7d9"
+                                             FontSize="12"
+                                             TextColor="#7c8185"
+                                             PlaceholderColor="#7c8185"
+                                             Keyboard="Email"
+                                             CornerRadius="100"
+                                             Margin="20, 5, 20, 30"
+                                             Text="{Binding Pesquisa}"/>
+                <StackLayout>
+                    <ListView HasUnevenRows="True"
+                              HeightRequest="500"
+                              BackgroundColor="White"
+                              SelectedItem="{Binding ItemSelecionado}"
+                              ItemsSource="{Binding AnunciosDisponiveis}"
+                              HorizontalScrollBarVisibility="Never"
+                              VerticalScrollBarVisibility="Never"
+                              SeparatorColor="Transparent">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout BackgroundColor="#d6d7d9"
+                                                 Margin="0, 0, 0, 30"
+                                                 Spacing="0">
+                                        <Label Text="{Binding Categoria}"
+                                               FontSize="14"
+                                               Margin="0, 10, 0, 0"
+                                               TextColor="#e17622"
+                                               FontAttributes="Bold"
+                                               HorizontalTextAlignment="Center"
+                                               HorizontalOptions="Center"/>
+                                        <StackLayout Orientation="Horizontal"
+                                                     HorizontalOptions="FillAndExpand">
+                                            <Label Text="{Binding PreTitulo}"
+                                                   FontSize="16"
+                                                   TextColor="Black"
+                                                   FontAttributes="Bold"
+                                                   HorizontalTextAlignment="Center"
+                                                   HorizontalOptions="CenterAndExpand"
+                                                   Margin="65, 0, 0, 10"
+                                                   VerticalOptions="CenterAndExpand"/>
+                                            <ImageButton Source="Detalhe360_Imagem.png"
+                                                         WidthRequest="60"
+                                                         HeightRequest="30"
+                                                         BackgroundColor="Transparent"
+                                                         CornerRadius="10"
+                                                         Margin="0, 0, 10, 10"
+                                                         IsVisible="{Binding Possui360}"/>
+                                        </StackLayout>
+                                        
+                                        <RelativeLayout BackgroundColor="Transparent"
+                                                        HeightRequest="200">
+                                            <CarouselView ItemsSource="{Binding Imagens}"
+                                                          HorizontalScrollBarVisibility="Always"
+                                                          RelativeLayout.XConstraint="0"
+                                                          RelativeLayout.YConstraint="0">
+                                                <CarouselView.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackLayout Spacing="0"
+                                                                     Padding="0">
+                                                            <Frame HasShadow="True"
+                                                                   BorderColor="Transparent"
+                                                                   HorizontalOptions="FillAndExpand"
+                                                                   Padding="0"
+                                                                   BackgroundColor="Transparent">
+                                                                <StackLayout>
+                                                                    <Image Source="{Binding ImagemSource}"
+                                                                           Aspect="AspectFill"
+                                                                           HeightRequest="200"
+                                                                           Margin="20, 0, 20, 0"/>
+                                                                </StackLayout>
+                                                            </Frame>
+                                                        </StackLayout>
+                                                    </DataTemplate>
+                                                </CarouselView.ItemTemplate>
+                                            </CarouselView>
+                                            <Image Source="Categoria_Imagem.png"
+                                                   WidthRequest="60"
+                                                   HeightRequest="30"
+                                                   BackgroundColor="Transparent"
+                                                   RelativeLayout.XConstraint="30"
+                                                   RelativeLayout.YConstraint="5"/>
+                                        </RelativeLayout>
+                                        <StackLayout BackgroundColor="White"
+                                                     Margin="40, 0, 40, 40">
+                                            <Label Text="{Binding Titulo}"
+                                                   FontSize="16"
+                                                   TextColor="Black"
+                                                   HorizontalTextAlignment="Center"
+                                                   HorizontalOptions="Center"
+                                                   Margin="0, 20, 0, 10"/>
+                                            <messier16:RatingBar Rating="{Binding Avaliacao}"
+                                                                 IsEnabled="False"
+                                                                 Image="Estrela.png" 
+                                                                 MaxRating="5" 
+                                                                 FillColor="DarkOrange"  
+                                                                 HeightRequest="10"
+                                                                 WidthRequest="100"
+                                                                 HorizontalOptions="CenterAndExpand"/>
+
+                                            <Label Text="{Binding Descricao}"
+                                                   FontSize="14"
+                                                   Margin="20"
+                                                   HorizontalOptions="Start"
+                                                   HorizontalTextAlignment="Start"
+                                                   IsVisible="{Binding ESelecionado}"/>
+                                            <Label Text="Endereço: "
+                                                   FontSize="14"
+                                                   Margin="20, 0, 0, 0"
+                                                   FontAttributes="Bold"
+                                                   HorizontalTextAlignment="Start"
+                                                   HorizontalOptions="Start"
+                                                   IsVisible="{Binding ESelecionado}"/>
+                                            <Label Text="{Binding Endereco}"
+                                                   FontSize="14"
+                                                   Margin="20, 0, 0, 0"
+                                                   HorizontalOptions="Start"
+                                                   HorizontalTextAlignment="Start"
+                                                   IsVisible="{Binding ESelecionado}"/>
+                                            <StackLayout Orientation="Horizontal"
+                                                         HorizontalOptions="FillAndExpand"
+                                                         Margin="10">
+                                                <StackLayout HorizontalOptions="FillAndExpand">
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Image Source="Imagem_IconeDivulgacao1.png"
+                                                               HeightRequest="15"
+                                                               WidthRequest="10"
+                                                               VerticalOptions="Center"/>
+                                                        <Label Text="Capacidade"
+                                                               FontSize="14"
+                                                               FontAttributes="Bold"
+                                                               HorizontalTextAlignment="Center"/>
+                                                    </StackLayout>
+
+                                                    <Label Text="{Binding Capacidade}"
+                                                           FontSize="12"
+                                                           HorizontalTextAlignment="Center"/>
+                                                </StackLayout>
+                                                <StackLayout HorizontalOptions="FillAndExpand">
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Image Source="Imagem_IconeDivulgacao2.png"
+                                                               HeightRequest="15"
+                                                               WidthRequest="10"
+                                                               VerticalOptions="Center"/>
+                                                        <Label Text="Hora"
+                                                               FontSize="14"
+                                                               FontAttributes="Bold"
+                                                               HorizontalTextAlignment="Center"/>
+                                                    </StackLayout>
+                                                    <Label Text="{Binding Hora, StringFormat='{}{0:c}'}"
+                                                           FontSize="12"
+                                                           HorizontalTextAlignment="Center"/>
+                                                </StackLayout>
+                                                <StackLayout HorizontalOptions="FillAndExpand">
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Image Source="Imagem_IconeDivulgacao2.png"
+                                                               HeightRequest="15"
+                                                               WidthRequest="10"
+                                                               VerticalOptions="Center"/>
+                                                        <Label Text="Diaria"
+                                                               FontSize="14"
+                                                               FontAttributes="Bold"
+                                                               HorizontalTextAlignment="Center"
+                                                               VerticalTextAlignment="Center"/>
+                                                    </StackLayout>
+                                                    <Label Text="{Binding Diaria, StringFormat='{}{0:c}'}"
+                                                           FontSize="12"
+                                                           HorizontalTextAlignment="Center"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                            <Button Text="Reservar"
+                                                    Padding="0"
+                                                    BackgroundColor="#e17622"
+                                                    WidthRequest="140"
+                                                    HorizontalOptions="Center"
+                                                    HeightRequest="40"
+                                                    TextColor="White"
+                                                    FontSize="14"
+                                                    FontAttributes="Bold"
+                                                    CornerRadius="100"
+                                                    IsVisible="{Binding ESelecionado}"
+                                                    Margin="0, 20, 0, 30"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

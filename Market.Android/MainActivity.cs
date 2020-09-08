@@ -3,6 +3,7 @@ using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
+using Naxam.Controls.Platform.Droid;
 
 namespace Market.Droid
 {
@@ -16,8 +17,18 @@ namespace Market.Droid
 
             base.OnCreate(savedInstanceState);
 
+            //Customizações
+            BottomTabbedRenderer.BackgroundColor = new Android.Graphics.Color(228, 229, 230);
+            BottomTabbedRenderer.FontSize = 10;
+            BottomTabbedRenderer.IconSize = 30;
+            BottomTabbedRenderer.ItemSpacing = 5;
+            BottomTabbedRenderer.ItemPadding = new Xamarin.Forms.Thickness(0);
+            BottomTabbedRenderer.BottomBarHeight = 60;
+
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            Messier16.Forms.Android.Controls.Messier16Controls.InitAll();
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

@@ -2,7 +2,7 @@
 {
     public class EnderecoModel
     {
-        public int Cep { get; set; }
+        public string Cep { get; set; }
         public string Estado { get; set; }
         public string CidadeMunicipio { get; set; }
         public string NomeDoEdificio { get; set; }
