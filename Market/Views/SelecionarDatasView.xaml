@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
+             x:Class="Market.Views.SelecionarDatasView"
+             NavigationPage.IconColor="Gray">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <Label Text="{Binding Categoria}"
+                   FontSize="16"
+                   Margin="0, 0, 0, 10"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="Center"
+                   TextColor="#e17622"/>
+            <ScrollView BackgroundColor="#d6d7d9">
+                <StackLayout>
+                    <Label Text="{Binding Titulo}"
+                           FontSize="16"
+                           Margin="0, 25, 0, 10"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"
+                           HorizontalOptions="Center"
+                           TextColor="Black"/>
+                    <Picker BackgroundColor="LightGray"
+                            Margin="70, 0, 70, 0"
+                            HorizontalOptions="FillAndExpand"
+                            ItemsSource="{Binding Meses}"
+                            SelectedIndex="{Binding MesDefault}">
+                    </Picker>
+                    <syncfusion:SfCalendar SelectionMode="MultiSelection"
+                                           Margin="70, 0, 70, 0"
+                                           MinDate="{Binding DataMinima}"
+                                           HeightRequest="180"
+                                           SelectionChangedCommand="{Binding DataSelecionada}"
+                                           EnableSwiping="False"
+                                           ShowYearView="False"
+                                           ShowLeadingAndTrailingDays="False"
+                                           ShowHeader="False"/>
+
+                    <StackLayout BindableLayout.EmptyView="{Binding ResumoDatas}"
+                                 BackgroundColor="White"
+                                 Margin="30"
+                                 />
+
+                    <Button Text="RESERVAR"
+                            Padding="0"
+                            BackgroundColor="#e17622"
+                            WidthRequest="130"
+                            HorizontalOptions="Center"
+                            HeightRequest="40"
+                            TextColor="White"
+                            FontSize="14"
+                            FontAttributes="Bold"
+                            CornerRadius="100"
+                            Command="{Binding ReservarLocal_Clicked}"
+                            Margin="10"/>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

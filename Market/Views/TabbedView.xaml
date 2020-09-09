@@ -6,4 +6,9 @@
                          x:Class="Market.Views.TabbedView"
                          NavigationPage.IconColor="Gray">
     <local:HomeDetailView/>
+    <local:HomeDetailView/>
+    <local:HomeDetailView/>
+    <local:HomeDetailView/>
+    <local:HomeDetailView/>
+    <local:HomeDetailView/>
 </naxam:BottomTabbedPage>

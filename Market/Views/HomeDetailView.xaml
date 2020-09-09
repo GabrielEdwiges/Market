@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:enhancedEntry="clr-namespace:LeoJHarris.FormsPlugin.Abstractions;assembly=LeoJHarris.FormsPlugin.Abstractions" xmlns:messier16="clr-namespace:Messier16.Forms.Controls;assembly=Messier16.Forms.Controls"
              x:Class="Market.Views.HomeDetailView"
-             NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="False"
              Title="HOME"
              IconImageSource="{Binding ImagemSelecionada}">
     <ContentPage.Content>
@@ -48,6 +48,7 @@
                 <StackLayout>
                     <ListView HasUnevenRows="True"
                               HeightRequest="500"
+                              x:Name="listView"
                               BackgroundColor="White"
                               SelectedItem="{Binding ItemSelecionado}"
                               ItemsSource="{Binding AnunciosDisponiveis}"
@@ -216,6 +217,8 @@
                                                     FontSize="14"
                                                     FontAttributes="Bold"
                                                     CornerRadius="100"
+                                                    Command="{Binding Source={x:Reference listView}, Path=BindingContext.Reservar_Clicked}"
+                                                    CommandParameter="{Binding .}"
                                                     IsVisible="{Binding ESelecionado}"
                                                     Margin="0, 20, 0, 30"/>
                                         </StackLayout>

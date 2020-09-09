@@ -1,5 +1,4 @@
-﻿using Market.ViewModels.Services;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace Market.ViewModels
 {

@@ -5,12 +5,18 @@ namespace Market.Models
 {
     public class AnuncioModel
     {
+        public AnuncioModel()
+        {
+            this.DatasSelecionadas = new List<List<DateTime>>();
+            this.DatasIndisponiveis = new List<DateTime>();
+        }
         public string Categoria { get; set; }
         public string PreTitulo { get; set; }
         public string Titulo { get; set; }
         public List<ImagemModel> Imagens { get; set; }
         public string Imagem { get; set; }
         public List<DateTime> DatasIndisponiveis { get; set; }
+        public List<List<DateTime>> DatasSelecionadas { get; set; }
         public string Endereco { get; set; }
         public EnderecoModel DetalhesEndereco { get; set; }
         public bool Possui360 { get; set; }

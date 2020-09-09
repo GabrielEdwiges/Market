@@ -60,6 +60,9 @@
     <PackageReference Include="Naxam.BottomTabbedPage">
       <Version>0.3.0.2</Version>
     </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfCalendar">
+      <Version>18.2.0.57</Version>
+    </PackageReference>
     <PackageReference Include="ThriveGmbH.BottomNavigationBar.XF">
       <Version>1.0.2</Version>
     </PackageReference>

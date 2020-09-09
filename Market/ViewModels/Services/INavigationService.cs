@@ -8,6 +8,6 @@ namespace Market.ViewModels.Services
         Task NavigateToRegister();
         Task NavigateToHomePage();
         Task NavigateToForgetPassword();
-
+        Task NavigateToSelectDates();
     }
 }

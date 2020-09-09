@@ -10,6 +10,8 @@ namespace Market
         {
             DependencyService.Register<IMessageService, MessageService>();
             DependencyService.Register<INavigationService, NavigationService>();
+            //Register Syncfusion license
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzAxMzkxQDMxMzgyZTMyMmUzMFdHTUppVTNUckVZdWFrUmxHSjJMelpDa1ZGWllTQmZpbWVIZDZ0OGhlRmM9");
 
             InitializeComponent();
 

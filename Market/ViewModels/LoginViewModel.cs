@@ -31,7 +31,7 @@ namespace Market.ViewModels
 
         private void EntrarAction()
         {
-            if(this.Email == "adm" && this.Password == "123")
+            if (this.Email == "adm" && this.Password == "123")
             {
                 this._NavigationService.NavigateToWelcome();
             }
@@ -50,6 +50,6 @@ namespace Market.ViewModels
         {
             Email = "Esqueceu foi ?";
         }
-        
+
     }
 }

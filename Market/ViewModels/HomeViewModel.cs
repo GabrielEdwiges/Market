@@ -14,7 +14,7 @@ namespace Market.ViewModels
             get { return _ItemSelecionado; }
             set
             {
-                if(_ItemSelecionado != value)
+                if (_ItemSelecionado != value)
                 {
                     _ItemSelecionado = value;
                     HandleSelectedItem();

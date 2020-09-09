@@ -21,6 +21,12 @@ namespace Market.Views.Services
             throw new NotImplementedException();
         }
 
+        [Obsolete]
+        public async Task NavigateToSelectDates()
+        {
+            await Market.App.Current.MainPage.Navigation.PushAsync(new Views.SelecionarDatasView());
+        }
+
         public async Task NavigateToWelcome()
         {
             await Market.App.Current.MainPage.Navigation.PushAsync(new Views.BoasVindasView());

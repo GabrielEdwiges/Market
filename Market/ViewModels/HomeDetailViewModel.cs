@@ -1,14 +1,17 @@
 ﻿using Market.Models;
+using Market.ViewModels.Services;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Runtime.CompilerServices;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace Market.ViewModels
 {
     public class HomeDetailViewModel : BaseViewModel
     {
         private AnuncioModel _oldDivulgacao;
-
+        private readonly INavigationService _NavigationService;
+        private readonly IMessageService _MessageService;
         private AnuncioModel _ItemSelecionado { get; set; }
         public AnuncioModel ItemSelecionado
         {
@@ -29,6 +32,11 @@ namespace Market.ViewModels
         public ObservableCollection<DetalheModel> DetalhesModel { get { return _DetalhesModel; } set { _DetalhesModel = value; } }
         public HomeDetailViewModel()
         {
+            Reservar_Clicked = new Command(ReservarCommand);
+
+            this._MessageService = DependencyService.Get<IMessageService>();
+            this._NavigationService = DependencyService.Get<INavigationService>();
+
             DetalhesModel = new ObservableCollection<DetalheModel>()
             {
                 new DetalheModel(){ Icone = "DetalheHelicoptero_HomeDetailView.png", ESelecionado = false, Representacao = 1, Titulo = "Helipontos"},
@@ -105,10 +113,26 @@ namespace Market.ViewModels
         private string _Pesquisa { get; set; }
         public string Pesquisa { get { return _Pesquisa; } set { _Pesquisa = value; OnPropertyChanged("Pesquisa"); } }
 
+        public ICommand Reservar_Clicked { get; set; }
+
+        public static AnuncioModel _AnuncioSelecionado { get; private set; }
+
+        private void ReservarCommand()
+        {
+            _AnuncioSelecionado = ItemSelecionado;
+            if (_AnuncioSelecionado == null)
+            {
+                this._MessageService.ShowAsync("Não á nenhum anuncio selecionado!");
+            }
+            else
+            {
+                this._NavigationService.NavigateToSelectDates();
+            }
+        }
 
         internal virtual void HideOrShowAgendamento(AnuncioModel divulgacao)
         {
-            if(divulgacao == null)
+            if (divulgacao == null)
             {
                 return;
             }
